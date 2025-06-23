@@ -1,0 +1,113 @@
+.NavStyles {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 1rem 2rem;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+  position: relative;
+  flex-direction: row;
+}
+
+
+/* Agrupar en 3 secciones */
+.NavLeft,
+.NavCenter,
+.NavRight {
+  display: flex;
+  align-items: center;
+}
+
+/* Logo */
+.LogoStyles {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+}
+
+.LogoImgStyles {
+  height: 40px;
+  margin-right: 8px;
+}
+
+.LogoText {
+  margin: 0;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* Hamburger */
+.Hamburger {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Enlaces */
+.NavLinks {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+}
+
+.NavLinks li a {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
+
+
+/* ✅ Responsive behavior */
+@media (max-width: 768px) {
+  .NavStyles {
+    /* flex-wrap: nowrap;  */
+    justify-content: space-between;
+  }
+
+  .Hamburger {
+    display: block;
+  }
+
+  .NavLeft,
+  .NavCenter,
+  .NavRight {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .NavLeft {
+    justify-content: flex-start;
+  }
+
+  .NavRight {
+    justify-content: flex-end;
+  }
+
+  .NavLinks {
+    flex-direction: column;
+    width: 100%;
+    display: none;
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .NavLinks.open {
+    display: flex;
+  }
+
+  .CartWidgetStyles {
+    margin-top: 0;
+  }
+}
+
+
+
+
+
+

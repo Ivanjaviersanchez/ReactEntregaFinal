@@ -1,0 +1,22 @@
+.cardDetalleProducto {
+    width: 50%;
+    height: auto;
+    padding-bottom: 2vh;
+    background-color: rgb(199, 208, 199);;
+    border-radius: 15px;
+    text-align: center;
+    display: inline-block;
+    margin-top: 5vh;
+}
+
+.cardDetalleProducto button {
+    color: white;
+    background-color: rgb(122, 157, 124);
+    margin-top: 1vh;
+}
+.cardDetalleProducto span {
+    color: black;
+    margin-left: 1.5vh;
+    
+    font-size: 3vh;
+}
