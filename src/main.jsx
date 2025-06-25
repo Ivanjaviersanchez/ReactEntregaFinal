@@ -1,9 +1,10 @@
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
+import ReactDOM from 'react-dom/client';
+import App from './App.jsx';
+import { CartProvider } from "./components/CartContext.jsx"
 import { initializeApp } from "firebase/app";
-import './index.css'
+import './index.css';
 
-/*      BASE DE DATOS     */
+// Configuración de Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyDnW6n30wHK8tmkVyzi1Zm5GFycBKxlO9E",
   authDomain: "tecnobox-ecommerce.firebaseapp.com",
@@ -14,9 +15,10 @@ const firebaseConfig = {
 };
 initializeApp(firebaseConfig);
 
-
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <>
+  <CartProvider>
     <App />
-  </>,
-)
+  </CartProvider>,
+);
+
+

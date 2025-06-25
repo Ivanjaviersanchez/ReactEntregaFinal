@@ -1,15 +1,19 @@
 import { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
-import "./Layout.css";
-import logo from "../assets/logo.png";
 import CartWidget from "./CartWidget";
+import Cart from "./Cart";
+import logo from "../assets/logo.png";
+import "./Layout.css";
 
 function Layout() {
+
   const [menuOpen, setMenuOpen] = useState(false);
+  const [cartVisible, setCartVisible] = useState(false);
 
   return (
     <div>
       <nav className="NavStyles">
+        
         {/* Sección izquierda: menú hamburguesa */}
         <div className="NavLeft">
           <button className="Hamburger" onClick={() => setMenuOpen(!menuOpen)}>
@@ -35,10 +39,18 @@ function Layout() {
 
         {/* Sección derecha: carrito */}
         <div className="NavRight">
-          <CartWidget />
+          <CartWidget onClick={() => setCartVisible(true)}/>
         </div>
-
       </nav>
+
+      {/* Fondo oscurecido */}
+      {cartVisible && <div className="CartOverlay" onClick={() => setCartVisible(false)}></div>}
+
+      {/* Sidebar del carrito */}
+      <div className={`CartSidebar ${cartVisible ? "open" : ""}`}>
+        <button className="CloseBtn" onClick={() => setCartVisible(false)}>X</button>
+        <Cart />
+      </div>
 
       <Outlet />
     </div>

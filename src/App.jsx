@@ -9,6 +9,7 @@ import Nosotros from './components/Nosotros';
 import Catalogo from './components/Catalogo';
 import DetalleProducto from './components/DetalleProducto';
 import Contacto from './components/Contacto';
+import Cart from './components/Cart';
 import Error from './components/Error';
 
 
@@ -25,6 +26,7 @@ function App() {
             <Route path='/catalogo' element={<Catalogo/>}/>
             <Route path='/catalogo/:id' element={<DetalleProducto/>}/>
             <Route path='/contacto' element={<Contacto/>}/>
+            <Route path='/cart' element={<Cart />}/>
             <Route path='/*' element={<Error/>}/>
           </Route>
         </Routes>

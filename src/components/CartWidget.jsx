@@ -1,14 +1,17 @@
-import "./CartWidget.css"
+import { useCart } from "./CartContext";
+import { Link } from "react-router-dom";
+import "./CartWidget.css";
 
-function CartWidget() {
+function CartWidget({ onClick }) {
+
+  const { totalItems } = useCart();
+
   return (
-    <>
-      <div className="CartWidgetStyles">
-        <a href="#"><img className="CartStyles" src="/src/assets/icon-1001596_640.png" alt="logo"/></a>
-        <span className="Badge">4</span>
-      </div>
-    </>
-  )
+    <div className="CartWidgetStyles" onClick={onClick}>
+      <img className="CartStyles" src="/src/assets/icon-1001596_640.png" alt="Carrito" />
+      {totalItems > 0 && <span className="Badge">{totalItems}</span>}
+    </div>
+  );
 }
 
-export default CartWidget
+export default CartWidget;

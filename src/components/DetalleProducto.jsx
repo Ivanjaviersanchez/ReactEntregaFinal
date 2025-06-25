@@ -2,16 +2,15 @@ import { useEffect, useState } from "react";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
+import { useCart } from "./CartContext";
 import "./DetalleProducto.css";
-
-
-/*  MUESTRA LOS DETALLES DE CADA PRODUCTO   */
 
 function DetalleProducto() {
   const { id } = useParams();
   const [producto, setProducto] = useState(null);
   const [loading, setLoading] = useState(true);
   const [cantidad, setCantidad] = useState(1);
+  const { addToCart } = useCart(); // 👈 usar el contexto del carrito
 
   useEffect(() => {
     const db = getFirestore();
@@ -31,26 +30,21 @@ function DetalleProducto() {
       .finally(() => setLoading(false));
   }, [id]);
 
-  if (loading) {
-    return <h2>Cargando producto...</h2>;
-  }
-  if (!producto) {
-    return <h2>El producto seleccionado no existe</h2>;
-  }
-
   const incrementar = () => {
     if (cantidad < producto.stock) {
-      setCantidad(cantidad + 1);
+      setCantidad((prev) => prev + 1);
     }
   };
 
   const decrementar = () => {
     if (cantidad > 1) {
-      setCantidad(cantidad - 1);
+      setCantidad((prev) => prev - 1);
     }
   };
 
   const agregarAlCarrito = () => {
+    addToCart(producto, cantidad); 
+
     Swal.fire({
       title: '¡Producto agregado!',
       text: `Agregaste ${cantidad} unidad(es) de "${producto.title}" al carrito.`,
@@ -61,6 +55,9 @@ function DetalleProducto() {
     });
   };
 
+  if (loading) return <h2>Cargando producto...</h2>;
+  if (!producto) return <h2>El producto no existe</h2>;
+
   return (
     <div className="cardDetalleProducto">
       <h2>Detalles de producto</h2>
@@ -68,11 +65,13 @@ function DetalleProducto() {
       <img src={`/img/${producto.imageId}`} alt={producto.title} />
       <h3>Precio: ${producto.price}</h3>
       <h3>Stock disponible: {producto.stock} unid.</h3>
+
       <div className="contador">
         <button onClick={decrementar}>-</button>
         <span>{cantidad}</span>
         <button onClick={incrementar}>+</button>
       </div>
+
       <button className="btnCarrito" onClick={agregarAlCarrito}>
         Agregar al carrito
       </button>
@@ -81,3 +80,4 @@ function DetalleProducto() {
 }
 
 export default DetalleProducto;
+
