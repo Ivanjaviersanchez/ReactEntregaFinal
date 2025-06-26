@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom"; 
 import Swal from "sweetalert2";
 import { useCart } from "./CartContext";
 import "./DetalleProducto.css";
 
 function DetalleProducto() {
   const { id } = useParams();
+  const navigate = useNavigate();  
   const [producto, setProducto] = useState(null);
   const [loading, setLoading] = useState(true);
   const [cantidad, setCantidad] = useState(1);
-  const { addToCart } = useCart(); // 👈 usar el contexto del carrito
+  const { addToCart } = useCart();
 
   useEffect(() => {
     const db = getFirestore();
@@ -43,7 +44,7 @@ function DetalleProducto() {
   };
 
   const agregarAlCarrito = () => {
-    addToCart(producto, cantidad); 
+    addToCart(producto, cantidad);
 
     Swal.fire({
       title: '¡Producto agregado!',
@@ -52,6 +53,8 @@ function DetalleProducto() {
       confirmButtonText: 'OK',
       timer: 3000,
       timerProgressBar: true
+    }).then(() => {
+      navigate("/catalogo");  //Redirigir después de cerrar el Swal
     });
   };
 
@@ -80,4 +83,5 @@ function DetalleProducto() {
 }
 
 export default DetalleProducto;
+
 
