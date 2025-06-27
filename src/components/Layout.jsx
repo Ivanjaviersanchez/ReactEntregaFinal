@@ -12,8 +12,11 @@ function Layout() {
 
   return (
     <div>
+      {/* Variable de entorno */}
+      <p>{import.meta.env.VITE_MENSAJE}</p>
+      
       <nav className="NavStyles">
-        
+
         {/* Sección izquierda: menú hamburguesa */}
         <div className="NavLeft">
           <button className="Hamburger" onClick={() => setMenuOpen(!menuOpen)}>
