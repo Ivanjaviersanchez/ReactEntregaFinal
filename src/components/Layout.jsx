@@ -13,7 +13,7 @@ function Layout() {
   return (
     <div>
       {/* Variable de entorno */}
-      <p>{import.meta.env.VITE_MENSAJE}</p>
+      <p className="variableEntornoStyles">{import.meta.env.VITE_MENSAJE}</p>
       
       <nav className="NavStyles">
 
