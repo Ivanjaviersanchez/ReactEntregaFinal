@@ -1,0 +1,56 @@
+.destacadosContainer {
+  padding: 2rem;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.destacadosContainer h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+  font-weight: bold;
+}
+
+.destacadosGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  justify-items: center;
+}
+
+.destacadoItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* 🔧 Sobrescribe el ancho solo dentro de destacados */
+.destacadoItem .cardProducto {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.tituloCategoria {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: #444;
+  font-weight: bold;
+}
+
+/* Estilos responsivos para tablets y móviles */
+@media (max-width: 1024px) {
+  .destacadosGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .destacadosGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+

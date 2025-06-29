@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import CartWidget from "./CartWidget";
 import Cart from "./Cart";
+import Footer from "./Footer";
 import logo from "../assets/logo.png";
 import "./Layout.css";
 
@@ -56,6 +57,7 @@ function Layout() {
       </div>
 
       <Outlet />
+      <Footer />
     </div>
   );
 }
