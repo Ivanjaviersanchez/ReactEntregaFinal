@@ -40,7 +40,7 @@ function DestacadosPorCategoria() {
 
     return (
         <div className="destacadosContainer">
-            <h2>🔥 Destacados por Categoría (Precio más bajo)</h2>
+            <h2>🔥 Destacados por Categoría</h2>
             <div className="destacadosGrid">
                 {destacados.map(({ categoria, producto }, index) => (
                     <div key={index} className="destacadoItem">
