@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
-import { useParams, useNavigate } from "react-router-dom"; 
+import { useParams, useNavigate, useLocation} from "react-router-dom"; 
 import Swal from "sweetalert2";
 import { useCart } from "./CartContext";
 import "./DetalleProducto.css";
 
 function DetalleProducto() {
   const { id } = useParams();
+  const location = useLocation();
   const navigate = useNavigate();  
   const [producto, setProducto] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -54,7 +55,11 @@ function DetalleProducto() {
       timer: 3000,
       timerProgressBar: true
     }).then(() => {
-      navigate("/catalogo");  //Redirigir después de cerrar el Swal
+      if (location.state?.from === "home") {
+        navigate("/");       // Redirige a home si viene de ahí
+      } else {
+        navigate("/catalogo");   // Sino, al catálogo
+      }
     });
   };
 
