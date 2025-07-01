@@ -1,23 +1,43 @@
-
 import "./Beneficios.css";
+import { FaMoneyCheckAlt, FaStore, FaWhatsapp, FaCreditCard } from "react-icons/fa";
 
 function Beneficios() {
   return (
     <section className="beneficiosContainer">
-      <div className="beneficioItem">
-        <span role="img" aria-label="Envío gratis" className="beneficioIcon">🚚</span>
-        <p>Envío gratis</p>
+      <div className="beneficioCard">
+        <FaCreditCard className="icon" />
+        <h3>Descuento exclusivo</h3>
+        <p>Pagando con <strong>Transferencia Bancaria</strong>.</p>
       </div>
-      <div className="beneficioItem">
-        <span role="img" aria-label="Devoluciones" className="beneficioIcon">📦</span>
-        <p>Devoluciones</p>
+
+      <div className="beneficioCard">
+        <FaMoneyCheckAlt className="icon" />
+        <h3>Crédito TecnoBox</h3>
+        <p>Solicitá tu crédito y <strong>disfrutá nuestros beneficios</strong>.</p>
       </div>
-      <div className="beneficioItem">
-        <span role="img" aria-label="Garantía" className="beneficioIcon">🛠</span>
-        <p>Garantía</p>
+
+      <div className="beneficioCard">
+        <FaWhatsapp className="icon" />
+        <h3>¿Tenés dudas?</h3>
+        <p>Escribinos por WhatsApp:</p>
+        <a 
+          href="https://wa.me/5492235380741" 
+          className="whatsappButton" 
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
+          📲 223 5380741
+        </a>
+      </div>
+
+      <div className="beneficioCard">
+        <FaStore className="icon" />
+        <h3>Retiro sin cargo</h3>
+        <p>En nuestras <strong>sucursales</strong>.</p>
       </div>
     </section>
   );
 }
 
 export default Beneficios;
+

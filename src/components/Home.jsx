@@ -19,8 +19,8 @@ function Home() {
   return (
     <div>
       <HomeCarrusel/>
-      <DestacadosPorCategoria/>
       <Beneficios/>
+      <DestacadosPorCategoria/>
       <BannerCTA/>
     </div> 
   );

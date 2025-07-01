@@ -36,16 +36,18 @@ function ProductoList({ productos }) {
         </select>
       </div>
 
-      {filteredProducts.map(producto => (
-        <Producto
-          key={producto.id}
-          id={producto.id}
-          producto={producto.title}
-          descripcion={producto.description}
-          imagen={producto.imageId}
-          precio={producto.price}
-        />
-      ))}
+      <div className="productoGridContainer">
+        {filteredProducts.map(producto => (
+          <Producto
+            key={producto.id}
+            id={producto.id}
+            producto={producto.title}
+            descripcion={producto.description}
+            imagen={producto.imageId}
+            precio={producto.price}
+          />
+        ))}
+      </div>
     </div>
   )
 }
