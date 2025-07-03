@@ -73,3 +73,20 @@
   font-weight: bold;
 }
 
+@media (max-width: 768px) {
+  .detalleContenido {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .detalleImagen,
+  .detalleInfo {
+    width: 100%;
+  }
+
+  .detalleInfo {
+    text-align: center;
+  }
+}
+
+
