@@ -1,22 +1,75 @@
 .cardDetalleProducto {
-    width: 50%;
-    height: auto;
-    padding-bottom: 2vh;
-    background-color: rgb(199, 208, 199);;
-    border-radius: 15px;
-    text-align: center;
-    display: inline-block;
-    margin-top: 5vh;
+  max-width: 900px;
+  width: 90%;
+  margin: 5vh auto;
+  padding: 2rem;
+  background-color: rgb(199, 208, 199);
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.cardDetalleProducto h2,
+.cardDetalleProducto h3 {
+  margin-bottom: 1rem;
+}
+
+.detalleContenido {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 2rem;
+  gap: 2rem;
+  text-align: left;
+}
+
+.detalleImagen{
+    width: 60%;
+}
+.detalleInfo {
+  width: 40%;
+}
+
+.detalleImg {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+.detalleInfo h3 {
+  margin: 1rem 0;
+}
+
+.contador {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
 .cardDetalleProducto button {
-    color: white;
-    background-color: rgb(122, 157, 124);
-    margin-top: 1vh;
+  color: white;
+  background-color: rgb(122, 157, 124);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
 }
+
+.cardDetalleProducto button:hover {
+  background-color: rgb(97, 130, 99);
+}
+
 .cardDetalleProducto span {
-    color: black;
-    margin-left: 1.5vh;
-    
-    font-size: 3vh;
+  color: black;
+  font-size: 1.5rem;
 }
+
+.btnCarrito {
+  margin-top: 2rem;
+  font-weight: bold;
+}
+

@@ -67,24 +67,33 @@ function DetalleProducto() {
   if (!producto) return <h2>El producto no existe</h2>;
 
   return (
-    <div className="cardDetalleProducto">
-      <h2>Detalles de producto</h2>
-      <h3>Producto: {producto.title}</h3>
-      <img src={`/img/${producto.imageId}`} alt={producto.title} />
-      <h3>Precio: ${producto.price}</h3>
-      <h3>Stock disponible: {producto.stock} unid.</h3>
-
-      <div className="contador">
-        <button onClick={decrementar}>-</button>
-        <span>{cantidad}</span>
-        <button onClick={incrementar}>+</button>
+  <div className="cardDetalleProducto">
+    <h3>Detalles de producto</h3>
+    <h3>{producto.title}</h3>
+    
+    <div className="detalleContenido">
+      <div className="detalleImagen">
+        <img src={producto.imageId} alt={producto.title} className="detalleImg" />
       </div>
 
-      <button className="btnCarrito" onClick={agregarAlCarrito}>
-        Agregar al carrito
-      </button>
+      <div className="detalleInfo">
+        <h3>{producto.description}</h3>
+        <h3>Precio: ${producto.price}</h3>
+        <h3>Stock disponible: {producto.stock} unid.</h3>
+
+        <div className="contador">
+          <button onClick={decrementar}>-</button>
+          <span>{cantidad}</span>
+          <button onClick={incrementar}>+</button>
+        </div>
+
+        <button className="btnCarrito" onClick={agregarAlCarrito}>
+          Agregar al carrito
+        </button>
+      </div>
     </div>
-  );
+  </div>
+);
 }
 
 export default DetalleProducto;
