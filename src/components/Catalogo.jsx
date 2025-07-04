@@ -12,13 +12,13 @@ function Catalogo() {
 
     getDocs(itemsCollection)
       .then((snapshot) => {
-        console.log("Snapshot:", snapshot); // <-- ¿Viene algo?
+        console.log("Snapshot:", snapshot); // Pregunta si viene algo
         if (!snapshot.empty) {
           const productosData = snapshot.docs.map(doc => ({
             id: doc.id,
             ...doc.data()
           }));
-          console.log("Productos desde Firestore:", productosData); // <-- ¿Tiene productos?
+          console.log("Productos desde Firestore:", productosData);  // Pregunta si hay productos
           setProductos(productosData);
         } else {
           console.log("No hay documentos en la colección.");

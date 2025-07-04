@@ -56,9 +56,9 @@ function DetalleProducto() {
       timerProgressBar: true
     }).then(() => {
       if (location.state?.from === "home") {
-        navigate("/");       // Redirige a home si viene de ahí
+        navigate("/");       // Redirige a home si estaba ahi
       } else {
-        navigate("/catalogo");   // Sino, al catálogo
+        navigate("/catalogo");   // Sino redirige a catalogo
       }
     });
   };

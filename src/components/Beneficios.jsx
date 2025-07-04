@@ -21,12 +21,12 @@ function Beneficios() {
         <h3>¿Tenés dudas?</h3>
         <p>Escribinos por WhatsApp:</p>
         <a 
-          href="https://wa.me/5492235380741" 
+          href="https://wa.me/549223543210" 
           className="whatsappButton" 
           target="_blank" 
           rel="noopener noreferrer"
         >
-          📲 223 5380741
+          📲 223 543210
         </a>
       </div>
 

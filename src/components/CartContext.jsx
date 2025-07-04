@@ -1,4 +1,3 @@
-// src/context/CartContext.js
 import { createContext, useContext, useState } from "react";
 import { getFirestore, collection, addDoc, Timestamp } from "firebase/firestore";
 import Swal from "sweetalert2";
@@ -6,7 +5,7 @@ import Swal from "sweetalert2";
 // Crear el contexto
 const CartContext = createContext();
 
-// Hook personalizado para usar el contexto fácilmente
+// Uso el contexto
 export const useCart = () => useContext(CartContext);
 
 // Proveedor del contexto
@@ -40,7 +39,6 @@ export function CartProvider({ children }) {
 
   // Calcular total de ítems
   const totalItems = cart.reduce((acc, item) => acc + item.cantidad, 0);
-
 
   return (
     <CartContext.Provider
