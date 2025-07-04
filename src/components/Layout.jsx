@@ -27,10 +27,10 @@ function Layout() {
 
         {/* Sección centro: logo */}
         <div className="NavCenter">
-          <a className="LogoStyles" href="#">
+          <Link to="/" className="LogoStyles" onClick={() => setMenuOpen(false)}>
             <img className="LogoImgStyles" src={logo} alt="logo" />
             <p className="LogoText">TecnoBox</p>
-          </a>
+          </Link>
         </div>
 
         {/* Menú desplegable */}
