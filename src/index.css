@@ -26,11 +26,12 @@ a:hover {
 ul {
   display: flex;
   gap: 10px;
+  
 }
 li {
   list-style: none;
   padding: 20px;
-  background-color: rgb(199, 208, 199);;
+  /* background-color: rgb(199, 208, 199); */
   border-radius: 15px;
 }
 

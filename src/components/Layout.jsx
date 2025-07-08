@@ -7,7 +7,6 @@ import logo from "../assets/logo.png";
 import "./Layout.css";
 
 function Layout() {
-
   const [menuOpen, setMenuOpen] = useState(false);
   const [cartVisible, setCartVisible] = useState(false);
 
@@ -15,44 +14,53 @@ function Layout() {
     <div>
       {/* Variable de entorno */}
       <p className="variableEntornoStyles">{import.meta.env.VITE_MENSAJE}</p>
-      
-      <nav className="NavStyles">
 
-        {/* Sección izquierda: menú hamburguesa */}
-        <div className="NavLeft">
-          <button className="Hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+      <nav className="navbar">
+        <div className="container">
+          {/* Logo */}
+          <Link to="/" className="navbar-brand" onClick={() => setMenuOpen(false)}>
+            <img src={logo} alt="logo" className="navbar-logo" />
+            <span className="navbar-title">TecnoBox</span>
+          </Link>
+
+          {/* Botón hamburguesa (mobile) */}
+          <button className="navbar-toggler" onClick={() => setMenuOpen(!menuOpen)}>
             ☰
           </button>
-        </div>
 
-        {/* Sección centro: logo */}
-        <div className="NavCenter">
-          <Link to="/" className="LogoStyles" onClick={() => setMenuOpen(false)}>
-            <img className="LogoImgStyles" src={logo} alt="logo" />
-            <p className="LogoText">TecnoBox</p>
-          </Link>
-        </div>
+          {/* Enlaces */}
+          <ul className={`navbar-menu ${menuOpen ? "active" : ""}`}>
+            <li>
+              <Link to="/" onClick={() => setMenuOpen(false)}>Inicio</Link>
+            </li>
+            <li>
+              <Link to="/nosotros" onClick={() => setMenuOpen(false)}>Nosotros</Link>
+            </li>
+            <li>
+              <Link to="/catalogo" onClick={() => setMenuOpen(false)}>Catálogo</Link>
+            </li>
+            <li>
+              <Link to="/contacto" onClick={() => setMenuOpen(false)}>Contacto</Link>
+            </li>
+          </ul>
 
-        {/* Menú desplegable */}
-        <ul className={`NavLinks ${menuOpen ? "open" : ""}`}>
-          <li><Link to="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
-          <li><Link to="/nosotros" onClick={() => setMenuOpen(false)}>Nosotros</Link></li>
-          <li><Link to="/catalogo" onClick={() => setMenuOpen(false)}>Catálogo</Link></li>
-          <li><Link to="/contacto" onClick={() => setMenuOpen(false)}>Contacto</Link></li>
-        </ul>
-
-        {/* Sección derecha: carrito */}
-        <div className="NavRight">
-          <CartWidget onClick={() => setCartVisible(true)}/>
+          {/* Icono Carrito */}
+          <div className="navbar-cart">
+            <CartWidget onClick={() => setCartVisible(true)} />
+          </div>
         </div>
       </nav>
 
       {/* Fondo oscurecido */}
-      {cartVisible && <div className="CartOverlay" onClick={() => setCartVisible(false)}></div>}
+      {cartVisible && (
+        <div className="CartOverlay" onClick={() => setCartVisible(false)}></div>
+      )}
 
       {/* Sidebar del carrito */}
       <div className={`CartSidebar ${cartVisible ? "open" : ""}`}>
-        <button className="CloseBtn" onClick={() => setCartVisible(false)}>X</button>
+        <button className="CloseBtn" onClick={() => setCartVisible(false)}>
+          X
+        </button>
         <Cart />
       </div>
 
@@ -63,5 +71,3 @@ function Layout() {
 }
 
 export default Layout;
-
-
